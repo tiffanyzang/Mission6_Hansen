@@ -1,16 +1,17 @@
 using Microsoft.AspNetCore.Mvc;
 using Mission6_Hansen.Models;
+using SQLitePCL;
 using System.Diagnostics;
 
 namespace Mission6_Hansen.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private MovieContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(MovieContext temp)
         {
-            _logger = logger;
+            _context = temp;
         }
 
         public IActionResult Index()
@@ -30,7 +31,10 @@ namespace Mission6_Hansen.Controllers
         [HttpPost]
         public IActionResult Collection(Movie response)
         {
-            return View();
+            _context.MovieCollection.Add(response);
+            _context.SaveChanges();
+
+            return View("Index", response);
         }
     }
 }
