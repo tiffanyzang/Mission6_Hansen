@@ -11,7 +11,7 @@ namespace Mission6_Hansen.Models
 
         public string Title { get; set; }
 
-        public int Year { get; set; }
+        public string Year { get; set; }
 
         public string Director { get; set; }
 
