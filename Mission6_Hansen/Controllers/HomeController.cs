@@ -36,5 +36,13 @@ namespace Mission6_Hansen.Controllers
 
             return View("Index", response);
         }
+
+        public IActionResult ViewData()
+        {
+            var movies = _context.MovieCollection
+                .OrderBy(x => x.Title).ToList();
+
+            return View("View", movies);
+        }
     }
 }

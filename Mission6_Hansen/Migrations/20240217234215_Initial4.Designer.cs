@@ -10,7 +10,7 @@ using Mission6_Hansen.Models;
 namespace Mission6_Hansen.Migrations
 {
     [DbContext(typeof(MovieContext))]
-    [Migration("20240214232321_Initial4")]
+    [Migration("20240217234215_Initial4")]
     partial class Initial4
     {
         /// <inheritdoc />
