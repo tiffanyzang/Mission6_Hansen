@@ -6,7 +6,7 @@
 
 @model List<Movie>
 
-<table class="table table-bordered">
+<table class="table table-bordered table-striped">
     <thead class="fw-bold">
         <tr>
             <td>Category: </td>
@@ -16,14 +16,16 @@
             <td>Rating: </td>
             <td>Edited: </td>
             <td>Lent to: </td>
+            <td>Copied to Plex:</td>
             <td>Notes: </td>
         </tr>
 
     </thead>
 
+    <tbody>
     @foreach (var row in Model)
     {
-    <tbody>
+    
         <tr>
             <td>@row.Category.CategoryName</td>
             <td>@row.Title</td>
@@ -32,12 +34,13 @@
             <td>@row.Rating</td>
             <td>@row.Edited</td>
             <td>@row.LentTo</td>
+            <td>@row.CopiedToPlex</td>
             <td>@row.Notes</td>
 
             <td><a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@row.MovieId">Edit</a></td>
             <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@row.MovieId">Delete</a></td>
         </tr>
-
-    </tbody>
+   
     }
+    </tbody>
 </table>
